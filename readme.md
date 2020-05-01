@@ -1,7 +1,36 @@
 # PowerShell basics
 
 - Just like "bash" PowerShell is a command shell and scripting language , however unlike bash it
-is based on Windows systems rather than linux systems.
+is based on Windows systems rather than Linux systems.
+
 - PowerShell offers a command-line option (powershell.exe) and an integrated scripting environment option (ISE, powershell_ise.exe)
-- Stored as ".ps1" files vs bash which is sotred as ".sh" the only way to run ".ps1" is to right click and select "run with powershell"
+
+- Stored as ".ps1" files vs bash which is stored as ".sh" the only way to run ".ps1" is to right click and select "run with powershell",
 this helps prevent accidents.
+
+- In addition, there is policy that restricts script execution. You can check this policy by running the "Get-ExecutionPolicy" command in PowerShell:
+  - Restricted— No scripts are allowed. This is the default setting, so you will see it the first time you run the command.
+  - AllSigned— You can run scripts signed by a trusted developer. With this setting in place, before executing, a script will ask you to confirm that you want to run it.
+  - RemoteSigned— You can run your own scripts or scripts signed by a trusted developer.
+  - Unrestricted— You can run any script you want.
+
+## PowerShell Cmdlets
+
+- A "cmdlet" is a PowerShell command with a predefined function, similar to an operator in a programming language. Here are some key things to know about cmdlets:
+  - There are "System", "User" and "Custom" Cmdlets
+  - Cmdlets outputs results as an object or as an array of objects.
+  - Cmdlets are case INsensitive.
+  - If you want to use several cmdlets in one string, you must separate them with a semicolon (;).
+
+## Cmdlet Format
+
+- A cmdlet always consists of a verb (or a word that functions as a verb) and a noun, separated with a hyphen (the “verb-noun” rule). For example, some of the verbs include:
+  - Get — To get something
+  - Set — To define something
+  - Start — To run something
+  - Stop — To stop something that is running
+  - Out — To output something
+  - New — To create something (“new” is not a verb, of course, but it functions as one)
+
+- So an example the following Cmldets commands that could be executed: "Get-Process", "Stop-Service"
+-  You can list all cmdlets by executing the "Get-Help -Category cmdlet"
