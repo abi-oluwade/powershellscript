@@ -8,7 +8,13 @@ is based on Windows systems rather than Linux systems.
 - Stored as ".ps1" files vs bash which is stored as ".sh" the only way to run ".ps1" is to right click and select "run with powershell",
 this helps prevent accidents.
 
-- In addition, there is policy that restricts script execution. You can check this policy by running the "Get-ExecutionPolicy" command in PowerShell:
+- In addition, there is policy that restricts script execution. You can check this policy by running the:
+
+````
+"Get-ExecutionPolicy"
+````
+
+ command in PowerShell:
   - Restricted— No scripts are allowed. This is the default setting, so you will see it the first time you run the command.
   - AllSigned— You can run scripts signed by a trusted developer. With this setting in place, before executing, a script will ask you to confirm that you want to run it.
   - RemoteSigned— You can run your own scripts or scripts signed by a trusted developer.
