@@ -30,23 +30,35 @@ this helps prevent accidents.
 - Will include supporting DLLs or applications and dependencies
 
 ### Modules
+- Cmdlets and Functions can be a part of a module.
 - Preferred packaging technique
 - File based, so no installation typically required (quicker). Just extract contents of zip file
-  which holds the commands and put it the appropriate directory. Powershell will do the rest.
+  which holds the commands and put it the appropriate directory. PowerShell will do the rest.
 - Typically script files but can include binary elements.
 - PowerShell autoloads modules as needed.
+- An "alias" is an alternate name for a cmdlet, function, executable file, including scripts.
+- 'Get-PSRepository' retrieves the place where the modules are stored and where more can be obtained.
 
-## PowerShell Cmdlets
+# GET USED TO FIND-MODULE, INSTALL-MODULE, SAVE-MODULE
 
-  - Cmdlets are commands that allow us to use the modules and snapins.
+
+### PowerShell Cmdlets
+
+  - Cmdlets are "commands" that allow us to use the modules and snapins.
   - A "cmdlet" is a PowerShell command with a predefined function, similar to an operator in a programming language. Here are some key things to know about cmdlets:
   - There are "System", "User" and "Custom" Cmdlets
   - Cmdlets outputs results as an object or as an array of objects.
   - Cmdlets are case INsensitive.
   - If you want to use several cmdlets in one string, you must separate them with a semicolon (;).
 
+(Example)
+```
+Running 'Get-Module -ListAvailable' will list all the module paths and the modules stored in those paths, as well as detailing the ExportedCommands (Cmdlets) to use the modules.
+Again, a module is typically script or binary(?).
+```
 
-## Cmdlet Format
+
+### Cmdlet Format
 
 - A cmdlet always consists of a verb (or a word that functions as a verb) and a noun, separated with a hyphen (the “verb-noun” rule). For example, some of the verbs include:
   - Get — To get something
@@ -56,5 +68,5 @@ this helps prevent accidents.
   - Out — To output something
   - New — To create something (“new” is not a verb, of course, but it functions as one)
 
-- So an example the following Cmldets commands that could be executed: "Get-Process", "Stop-Service"
+- So an example the following Cmdlets commands that could be executed: "Get-Process", "Stop-Service"
 -  You can list all cmdlets by executing the "Get-Help -Category cmdlet"
