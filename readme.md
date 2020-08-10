@@ -5,8 +5,12 @@ is based on Windows systems rather than Linux systems.
 
 - PowerShell offers a command-line option (powershell.exe) and an integrated scripting environment option (ISE, powershell_ise.exe)
 
-- Stored as ".ps1" files vs bash which is stored as ".sh" the only way to run ".ps1" is to right click and select "run with powershell",
+- Stored as ".ps1" files vs bash which is stored as ".sh" the only way to run ".ps1" is to right click and select "run with PowerShell",
 this helps prevent accidents.
+
+- PowerShell includes many commands "out of the box" however many can also come from 3rd party vendors
+
+- commands packaged as "Snapins" or "Modules"
 
 - In addition, there is policy that restricts script execution. You can check this policy by running the:
 
@@ -20,13 +24,27 @@ this helps prevent accidents.
   - RemoteSigned— You can run your own scripts or scripts signed by a trusted developer.
   - Unrestricted— You can run any script you want.
 
+### Snapins (legacy)
+- Requires an installation and must be added before using commands. (PowerShell will not automatically discover commands in snapins like in modules.)
+- "Snapins" require an installation for the commands to be used.
+- Will include supporting DLLs or applications and dependencies
+
+### Modules
+- Preferred packaging technique
+- File based, so no installation typically required (quicker). Just extract contents of zip file
+  which holds the commands and put it the appropriate directory. Powershell will do the rest.
+- Typically script files but can include binary elements.
+- PowerShell autoloads modules as needed.
+
 ## PowerShell Cmdlets
 
-- A "cmdlet" is a PowerShell command with a predefined function, similar to an operator in a programming language. Here are some key things to know about cmdlets:
+  - Cmdlets are commands that allow us to use the modules and snapins.
+  - A "cmdlet" is a PowerShell command with a predefined function, similar to an operator in a programming language. Here are some key things to know about cmdlets:
   - There are "System", "User" and "Custom" Cmdlets
   - Cmdlets outputs results as an object or as an array of objects.
   - Cmdlets are case INsensitive.
   - If you want to use several cmdlets in one string, you must separate them with a semicolon (;).
+
 
 ## Cmdlet Format
 
