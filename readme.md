@@ -50,15 +50,13 @@
 
 # GET USED TO FIND-MODULE, INSTALL-MODULE, SAVE-MODULE
 
-####
-- Find-Module = Finds modules in a repository that match specified criteria.
+#### Find-Module = Finds modules in a repository that match specified criteria.
 
 The Find-Module cmdlet finds modules in a repository that match the specified
 criteria. Find-Module returns a PSRepositoryItemInfo object for each module it
 finds. The objects can be sent down the pipeline to cmdlets such as Install-Module.
 
-####
-- Install-Module = Downloads one or more modules from a repository, and installs them on the local computer.
+#### Install-Module = Downloads one or more modules from a repository, and installs them on the local computer.
 
 The Install-Module cmdlet gets one or more modules that meet specified criteria
 from an online repository. The cmdlet verifies that search results are valid
@@ -70,7 +68,7 @@ from an online repository. The cmdlet verifies that search results are valid
 #### Save-Module = Saves a module and its dependencies on the local computer but doesn't install the module.
 
 Save-Module downloads and saves the most current version of a module.
-The files are saved to a specified path on the local computer. 
+The files are saved to a specified path on the local computer.
 The module isn't installed, but the contents are available for inspection by an
  administrator. The saved module can then be copied into the appropriate
  $env:PSModulePath location of the offline machine.
