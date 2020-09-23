@@ -1,29 +1,22 @@
-# Putting windows PowerShell to work
+# PowerShell Objects
 
-### Objectives.
-1. Role of "objects" in PowerShell in a pipeline
-2. How does a pipeline work.
-3. How to use formatting Cmdlets
-4. Discover how to use background jobs.
+PowerShell works with objects in a 'pipeline' and cmdlets (e.g Get-Process) output
+objects. Functions and scripts also typically output objects. Cmdlets can also
+accept objects as inputs as well. PowerShell comes with cmdlets that can already
+work objects.
 
-### Where do commands come from?
-- Capability of getting 3rd party commands will be useful on the job. They are
-packaged as "snapins" or "modules"
+- Objects have properties:
+  - Describe the object
+  - Not every property is displayed by default
+  - Often exposed via parameters
+  - Some are read-only and some are modifiable.
 
-#### Snapins (legacy)
-- Snapins require an installation for the commands to be used.
-- Will include supporting DLLs or applications and dependencies
+- Objects have methods:
+  - Actions the object can do or something done to the object. (e.g 'Service'
+    would be an object that can be stopped or started. )
+  - May use parameters.
+  - Methods often exposed via cmdlets.
+  - Can also be manually invoked on a per object basis.
 
-#### Modules
-- Preferred packaging technique
-- File based, so no installation typically required (quicker). Just extract contents of zip file
-which holds the commands and put it the appropriate directory. Powershell will do the rest.
-- Typically script files but can include binary elements.
-- PowerShell autoloads modules as needed.
-
-#### Useful commands examples
-````
-psversiontable -  Tells you PowerShell version.
-Get-PSSnapin - Will show all currently loaded snapins
-Add-PSSnapin quest*
-````
+## Master PowerShell by mastering objects in the pipline:
+  - Remember objects can be inputs and outputs of cmdlets. 
