@@ -21,7 +21,7 @@ work objects.
 ## Master PowerShell by mastering objects in the pipline:
   - Remember objects can be inputs and outputs of cmdlets.
 
-As a demonstration the 'psteachingtools' moudle was installed using find-module
+As a demonstration the 'psteachingtools' module was installed using find-module
 and install-module.
 
 'Get-Module -noun vegetable' shows us the modules contains functions that all
@@ -40,4 +40,28 @@ UPC     Count Name                 State    Color
 ````
 
 'Get-Member' will retrieve the properties and methods of an object, it can be
-piped to the end of another cmdlet, for example: Get-Vegetable | Get-Member
+piped to the end of another cmdlet, for example:
+````
+Get-Vegetable | Get-Member
+````
+TypeName indicates the object, in this case 'Vegetable'.
+
+Now we know the object type, we can manipulate the outputted objects further using
+cmdlets, for example the 'Select-Object' cmdlet which works with any type of object.
+
+So for example:
+````
+Get-Vegetable | Select-Object -property Name,Count,
+````
+
+This will return back the outputs and will allow us to specify the properties of
+the outputted objects we want to see.
+
+A primary use of 'Get-Member' is to recognise the property names which we can then use
+with the other cmdlets to filter what we want accurately.
+
+Another example is:
+````
+Get-Vegetable | Select-Object -First -Property *
+````
+Will show only the first object with all the associated properties of the object.
