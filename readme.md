@@ -1,5 +1,16 @@
 # PowerShell basics
 
+PowerShell is the scripting language primarily used for things such as
+our deployments or our infrastructure. In PowerShell, dot notation is used to call
+methods and properties from obejects. $ is used to call custom object we have created, call
+objects comes with a bunch of default methods and properties as PowerShell relies on the
+.NET framework for its methods and stuff (.dlls hold some of them?)
+````
+$colour.remove [1, 1]
+````
+The above example is the method 'remove' being called on the object 'colour',
+with the arguments [1,1] passed to remove 1 letter starting from that letter in the word.
+
 - Just like "bash" PowerShell is a command shell and scripting language,
   however unlike bash it is based on Windows systems rather than Linux systems.
 
