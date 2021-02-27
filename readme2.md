@@ -18,11 +18,12 @@ work objects.
   - Methods often exposed via cmdlets.
   - Can also be manually invoked on a per object basis.
 
-## Master PowerShell by mastering objects in the pipline:
+## Master PowerShell by mastering objects in the pipeline:
   - Remember objects can be inputs and outputs of cmdlets.
 
-As a demonstration the 'psteachingtools' module was installed using find-module
-and install-module.
+As a demonstration the 'psteachingtools' module was installed using
+1.find-module
+2.install-module.
 
 'Get-Module -noun vegetable' shows us the modules contains functions that all
 use the object vegetable.
