@@ -25,7 +25,7 @@ to create the directory aswell as the ps1 file for the profile.
 - Parameterizes to avoid hard coding, no credentials.  
 - Don't use aliases
 - Use full cmdlet and parameter names
-
+## Examples of below techniques in powershellbasic1.ps1 script
 ### If-else statements
 
 If (<some condition is true>) {
