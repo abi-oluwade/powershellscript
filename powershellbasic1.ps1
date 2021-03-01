@@ -63,7 +63,7 @@ $n[1]
 2
 
 # Setting $x, now is technically an array of the services.
-$s = Get-Service
+$s = Get-Service 
 #will output the name of the last service in the array we defined using Get-Service.
 $s[-1].Name
 
@@ -89,3 +89,50 @@ $Params= @{
 
 Get-CmdletExample @Params
 
+#--- 
+#Objects in the pipeline, we may want to specify our objects in the pipeline to have just the properties we want we may not neccassir be properties that are
+# default avaliable in our commandlets, therefore we can create custom properties to be used later in the pipeline, $_. represent current object in pipeline
+#New properties can be defined in the hashtable: @{Name='example';Expression={<code to do something>}}
+Get-ChildItem C:\Users\skitz\DevOpsProjects -File |
+Select-Object Name,LastWriteTime,
+@{Name="Size";
+Expression={$_.Length}},
+@{Name="Age";Expression={(Get-Date) - $_.LastWriteTime}}|
+Sort-Object Age -Descending|
+Select-Object -first 10
+
+#New-Object can also be used to specify the properties.
+# A hashtable can be made to specifiy the custom properteies wanted that may not nessarcily be in the Get-ChildItem cmdlet, allowing use to write
+# A custom object to the pipeline
+$f = Get-ChildItem -Path C:\Users\skitz\DevOpsProjects -File
+$n = Get-Date
+foreach ($file in $f) {
+    $h=@{
+        Name = $file.name
+        Modified = $file.LastWriteTime
+        Size = $file.Length
+        Age = $n - $f.LastWriteTime
+    }
+    New-Object psobject -Property $h
+}
+#--- 
+# Try/Catch blocks are used for error handling, so below is example syntax, try to run some command that will create a terminating exception,
+#Catch and handle any errors, There is the finally block that is optional and will run regardless. Error action stop required to force any errors to be terminating.
+Try {
+    <Some Code -ErrorAction Stop>
+}
+Catch {
+    <the exception object: $_>
+}
+
+#--- 
+#Demo
+$a = 1..10
+$a |
+ForEach-Object {$_ *5} |
+foreach ($item in $a) {
+    $file = "SERVER.$a.txt"
+    New-Item -Name $file -ItemType Directory
+
+    
+}
