@@ -43,7 +43,7 @@ foreach ($item in $n) {
 }
 
 #---
-# Arrays are essentialy lists which can be used to stre variables, below would be examples of arrays. Or creating an empty list of arrays.
+# Arrays are essentialy lists which can be used to store variables, below would be examples of arrays. Or creating an empty list of arrays.
 $KBLIst = "KBXXX", "KBYYY", "KBZZZ" 
 $arr = @()
 $n = 1..5
@@ -78,6 +78,7 @@ $hash2= [Ordered]@{
 }
 
 # Splatting allows us to create a hashtable with the parameters of cmdlet already defined, and then use that hashtable with the command.
+
 # The below will pass the parameters in the hashtable to the Cmdlet. 
 
 $Params= @{
@@ -135,4 +136,20 @@ foreach ($item in $a) {
     New-Item -Name $file -ItemType Directory
 
     
+}
+
+# Clear logs for path
+Get-ChildItem -Path C:\Users\skitz\AppData\Local\Docker -Include "install*.txt" -File -Recurse | foreach {$_.Delete()}
+
+
+
+# Output Hello-World
+
+function Get-HelloWorld {
+    Param(
+    [Parameter(Mandatory= $true, HelpMessage= "Enter a name!")]
+    [ValidateNotNullorEmpty()]
+    [string]$user
+)  
+    Write-Host "Hello" "$user" "and Hello World!"
 }
